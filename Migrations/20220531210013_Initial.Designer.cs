@@ -12,7 +12,7 @@ using VolgaIT.Data;
 namespace VolgaIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220531200723_Initial")]
+    [Migration("20220531210013_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

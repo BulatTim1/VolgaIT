@@ -10,13 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Pages - Copy\**" />
     <Compile Remove="pgdata\**" />
-    <Content Remove="Pages - Copy\**" />
     <Content Remove="pgdata\**" />
-    <EmbeddedResource Remove="Pages - Copy\**" />
     <EmbeddedResource Remove="pgdata\**" />
-    <None Remove="Pages - Copy\**" />
     <None Remove="pgdata\**" />
   </ItemGroup>
 
