@@ -6,7 +6,8 @@
 
     git clone https://github.com/BulatTim1/VolgaIT.git
     cd VolgaIT
-    docker-compose up --build
+    docker-compose up -d
+PS: Если не запустилось с первого раза, то попробуйте через 30 секунд (Базе данных нужно прогрузится).
 
 > Сайт находится на http://localhost:80
 
