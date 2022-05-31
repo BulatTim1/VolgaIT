@@ -49,10 +49,7 @@ namespace VolgaIT.Pages.Apps
         {
             UserId = _userManager.GetUserId(_signInManager.Context.User);
 
-            Application.UserId = UserId;
-            Application.CreatedDate = DateTime.UtcNow;
-
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || UserId == null)
             {
                 return Page();
             }

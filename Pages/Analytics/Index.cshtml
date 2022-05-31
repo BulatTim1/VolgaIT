@@ -1,0 +1,43 @@
+﻿@page
+@model VolgaIT.Pages.Analytics.IndexModel
+
+@{
+    ViewData["Title"] = "Analytics";
+}
+
+<h1>Аналитика</h1>
+
+<p>
+    <a asp-page="Create" asp-route-AppId=@Request.Query["AppId"]>Добавить событие</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AppEvent[0].Event)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppEvent[0].Info)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppEvent[0].CreatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AppEvent) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Info)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

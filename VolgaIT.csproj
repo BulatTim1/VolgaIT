@@ -11,9 +11,13 @@
 
   <ItemGroup>
     <Compile Remove="Pages - Copy\**" />
+    <Compile Remove="pgdata\**" />
     <Content Remove="Pages - Copy\**" />
+    <Content Remove="pgdata\**" />
     <EmbeddedResource Remove="Pages - Copy\**" />
+    <EmbeddedResource Remove="pgdata\**" />
     <None Remove="Pages - Copy\**" />
+    <None Remove="pgdata\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +35,10 @@
     <PackageReference Include="Npgsql" Version="6.0.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\chart\" />
   </ItemGroup>
 
 </Project>

@@ -18,5 +18,7 @@ namespace VolgaIT.Models
         [DataType(DataType.DateTime)]
         public DateTime CreatedDate { get; set; }
         public string? UserId { get; set; }
+
+        public List<AppEvent>? AppEvents { get; set; }
     }
 }
