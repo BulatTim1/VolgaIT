@@ -1,0 +1,23 @@
+version: '3.7'
+name: VolgaIT-compose
+services:
+  db:
+    container_name: postgresDB
+    image: "postgres:alpine"
+    environment:
+      - POSTGRES_PASSWORD=RqjWbe@29xk_vWyY
+      - POSTGRES_DB=webapp
+      - POSTGRES_USER=webapp
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+  volgait:
+    image: ${DOCKER_REGISTRY-}volgait
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "80:80"

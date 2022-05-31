@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  db:
+    ports:
+      - "5432:5432"
+  volgait:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

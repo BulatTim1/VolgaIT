@@ -1,0 +1,20 @@
+﻿@page
+@using VolgaIT.Models
+@model IndexModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Volga-IT</h1>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <p>Всего приложений: @Model.apps.Count</p>
+    }
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+</div>

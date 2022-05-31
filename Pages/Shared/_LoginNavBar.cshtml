@@ -1,0 +1,12 @@
+﻿@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-page="/Apps/Index">Список приложений</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-page="/Apps/Create">Добавить приложение</a>
+    </li>
+}
