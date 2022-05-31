@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using VolgaIT.Models;
 
 namespace VolgaIT.Data
 {
@@ -11,5 +12,7 @@ namespace VolgaIT.Data
         }
 
         public DbSet<Models.Application>? Apps { get; set; }
+
+        public DbSet<VolgaIT.Models.AppEvent>? AppEvent { get; set; }
     }
 }

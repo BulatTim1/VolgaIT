@@ -16,6 +16,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizeFolder("/Apps");
+    options.Conventions.AuthorizeFolder("/Analytics");
+    options.Conventions.AllowAnonymousToPage("/Analytics/Create");
 });
 
 builder.Services.Configure<IdentityOptions>(options =>

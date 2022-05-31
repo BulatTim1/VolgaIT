@@ -38,11 +38,12 @@
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
             <td>
+                <a asp-page="/Analytics/Index" asp-route-AppId="@item.AppId">Аналитика</a> |
                 <a asp-page="./Edit" asp-route-id="@item.Id">Изменить</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Детали</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
             </td>
-        </tr>
+        </tr> 
 }
     </tbody>
 </table>

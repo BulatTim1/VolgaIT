@@ -47,6 +47,7 @@ namespace VolgaIT.Pages.Apps
 
             Application.UserId = UserId;
             Application.CreatedDate = DateTime.UtcNow;
+            Application.AppEvents = new List<AppEvent>();
 
             if (Application.AppId == "" || Application.Name == "" || Application.UserId == "")
             {

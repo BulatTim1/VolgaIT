@@ -12,8 +12,8 @@ using VolgaIT.Data;
 namespace VolgaIT.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220527213440_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220531200723_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -224,6 +224,38 @@ namespace VolgaIT.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("VolgaIT.Models.AppEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("ApplicationId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Event")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Info")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationId");
+
+                    b.ToTable("AppEvent");
+                });
+
             modelBuilder.Entity("VolgaIT.Models.Application", b =>
                 {
                     b.Property<int>("Id")
@@ -244,7 +276,6 @@ namespace VolgaIT.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -301,6 +332,18 @@ namespace VolgaIT.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("VolgaIT.Models.AppEvent", b =>
+                {
+                    b.HasOne("VolgaIT.Models.Application", null)
+                        .WithMany("AppEvents")
+                        .HasForeignKey("ApplicationId");
+                });
+
+            modelBuilder.Entity("VolgaIT.Models.Application", b =>
+                {
+                    b.Navigation("AppEvents");
                 });
 #pragma warning restore 612, 618
         }

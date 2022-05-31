@@ -2,7 +2,7 @@
 
 namespace VolgaIT.Models
 {
-    public class Application
+    public class AppEvent
     {
         public int Id { get; set; }
 
@@ -11,14 +11,13 @@ namespace VolgaIT.Models
         public string? AppId { get; set; }
 
         [Required]
-        [Display(Name = "Название приложения")]
-        public string? Name { get; set; }
+        [Display(Name = "Название события")]
+        public string? Event { get; set; }
 
+        [Display(Name = "Дополнительная информация")]
+        public string? Info { get; set; }
         [Display(Name = "Дата создания")]
         [DataType(DataType.DateTime)]
         public DateTime CreatedDate { get; set; }
-        public string? UserId { get; set; }
-
-        public List<AppEvent>? AppEvents { get; set; }
     }
 }
